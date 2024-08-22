@@ -1,0 +1,749 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+    font-family: 'Poppins','sans-serif';
+}
+body{
+    background-color: rgba(255, 255, 255, 0.87);
+    color: black;
+}
+.home{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../Images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10px 8%;
+    position: relative;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.logo-content{
+    display: flex;
+    align-items: center;
+}
+.logo-content h2{
+    color: white;
+}
+.logo{
+    height: auto;
+    width: 40px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+.nav-items ul{
+    list-style: none;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+gap: 2.7rem;
+
+
+}
+.nav-items ul li a {
+    text-decoration: none;
+    color: white;
+    position: relative; /* Required for positioning the underline */
+    padding-bottom: 5px; /* Space for the underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-items ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: #D70081;
+    transition: width 0.3s ease; /* Smooth underline transition */
+}
+
+.nav-items ul li a:hover{
+    color: rgb(129, 124, 124);
+}
+.nav-items ul li a:hover::after {
+    width: 100%; /* Expands the underline to full width */
+}
+
+.start{
+color: white;
+background-color: #D70081;
+padding: 12px 15px;
+border: none;
+font-size: 16px;
+font-weight: 700;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
+}
+.start:hover{
+    background-color: #af4786;
+}
+
+.home-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.home-content h1{
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 600;
+    max-width: 90vw;
+    color: white;
+}
+.home-content p{
+    margin-top: 15px;
+    font-size: 20px;
+color: white;
+    font-weight: 600;
+}
+.contact, .locate {
+    box-sizing: border-box;
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-right: 12px;
+}
+
+.contact {
+    box-sizing: border-box;
+    color: white;
+    background-color: #d76f30;
+    border: none;
+}
+.contact:hover{
+    color: #d76f30;
+    background-color: transparent;
+    border: 1px solid white;
+    box-sizing: border-box;
+
+}
+
+.locate {
+    box-sizing: border-box;
+    color: #d76f30;
+    background-color: transparent;
+    border: 1px solid white;
+}
+.locate:hover{
+    color: white;
+    background-color: #d76f30;
+    border: none;
+    box-sizing: border-box;
+
+}
+.card-heading h2{
+    color: black;
+    font-size: 2.3vw;
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 900;
+    cursor: pointer;
+}
+.card-heading h2:hover{
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181, 181, 181);
+}
+
+/* Base styles */
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5vw;
+}
+
+.card {
+    width: 300px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 30px;
+    margin: 20px;
+
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h1 {
+    font-size: 25px;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.card-content .read {
+    display: inline-block;
+    font-size: 18px;
+    padding: 14px 20px;
+    background-color:#D70081;
+    color: white;
+    border-radius: 15px;
+    margin-top: 16px;
+    border: none;
+    margin-bottom: 2vw;
+    transition: background-color 0.4s ease-in;
+}
+.read:hover{
+    background-color:#d31788;
+}
+.section {
+    color: black;
+    margin-top: 36px;
+    text-align: center; /* Center-align all content in the section */
+    width: 50%; /* Set the width of the section to 70% */
+    margin: 0 auto; /* Center the section horizontally */
+}
+.section .head{
+    margin-top: 25px;
+}
+
+.head h2 {
+    font-size: 3vw; /* Adjust font size to be larger */
+    font-weight: bold; /* Make the heading bold */
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
+.lists {
+    display: flex; /* Use flexbox for alignment */
+    flex-wrap:wrap;
+flex-direction: column;
+    justify-content: center; /* Center-align the list items horizontally */
+}
+
+.lists h3 {
+    font-size: 1rem; /* Adjust font size for list items */
+    margin: 2px; /* Add space around each list item */
+font-weight: 500;
+cursor: pointer;
+}
+.know{
+    color: black;
+    font-size: 20px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 14px;
+    margin-top: 20px;
+}
+.know:hover{
+    background-color: #D70081;
+    border: none;
+}
+.about{
+    margin-top: 68px;
+    display: flex;
+width: 100%;
+height: calc(100vh - 100px); /* Adjust based on header height */
+position: relative;
+}
+.left-section{
+    height: 100%;
+    width: 50%;
+    padding: 5vw 4vw;
+    margin-bottom: 2rem;
+}
+.left-section h1{
+    position: absolute;
+    top: 2vw;
+    left: 4vw;
+}
+.left-section h1:hover{
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181, 181, 181);
+}
+.left-section p{
+    margin-top: 15px;
+    font-size: 1.7vw;
+    font-weight: 500;
+    color: black;
+    width: 75%;
+    margin-bottom: 2dvw;
+}
+.know-more{
+    background-color: #D70081;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 14px;
+    margin-top: 20px;
+}
+.right-section{
+    height: 100%;
+    width: 50%;
+    padding: 2vw 2vw;
+
+}
+.imgs{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+.testomonials {
+    margin-top: 68px;
+    width: 80%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+
+}
+.why{
+    margin-bottom: 50px;
+    cursor: pointer;
+    
+}
+.why:hover{
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181, 181, 181);
+}
+
+.row {
+    display: flex; /* Enable Flexbox */
+    justify-content: space-between; /* Space items evenly with space between them */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    gap: 20px; /* Optional: Add spacing between columns */
+}
+
+.testomonial-col {
+    flex: 1; /* Allow columns to grow and shrink equally */
+    flex-basis: 30%; /* Set a base width for the columns */
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #F0F0F0;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.testomonial-col img {
+    height: 35px;
+    margin-right: 10px; /* Add margin to the right of the image */
+    margin-top: 5px; /* Add margin to the top of the image */
+    border-radius: 50%;
+}
+
+.testomonial-col div {
+    display: flex;
+    flex-direction: column; /* Stack text content vertically */
+}
+
+.containers {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 20px 60px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the start */
+}
+
+/* Styles for left-side and right-side sections */
+.left-side {
+    width: 30%;
+    position: relative;
+}
+
+.left-side::before {
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(50%);
+    background-color: #afafb6;
+}
+
+.left-side .details {
+    text-align: center;
+    margin: 14px;
+}
+
+.left-side .details i {
+    font-size: 30px;
+    color: #263156;
+    margin-bottom: 10px;
+}
+
+.left-side .details .topic {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.text-one, .text-two {
+    font-size: 14px;
+    color: #afafb6;
+}
+
+.right-side {
+    width: 70%;
+}
+
+.contents .right-side .topic-text {
+    font-size: 23px;
+    font-weight: 600;
+    color: #263156;
+}
+
+.input-box {
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+}
+
+.input-box input, .input-box textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    background: #f0f1f8;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.message-box {
+    height: 110px;
+    margin-top: 6px;
+}
+
+.button {
+    display: inline-block;
+}
+
+.right-side .button input[type="button"] {
+    color: #fff;
+    font-size: 18px;
+    background-color: #263156;
+    outline: none;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in;
+    margin-top: 8px;
+}
+
+.button input[type="button"]:hover {
+    background-color: #303d68;
+    cursor: pointer;
+}
+
+/* Media queries for responsiveness */
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
+    .left-side {
+        width: 40%;
+    }
+
+    .right-side {
+        width: 60%;
+    }
+
+    .contents {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .left-side::before {
+        display: none; /* Hide the vertical line on smaller screens */
+    }
+}
+
+/* For smartphones and very small tablets */
+@media (max-width: 768px) {
+    .left-side {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 20px; /* Add spacing between sections */
+    }
+
+    .right-side {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .contents {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .input-box {
+        margin: 8px 0; /* Adjust margin */
+    }
+
+    .button input[type="button"] {
+        font-size: 16px; /* Adjust button font size */
+        padding: 6px 12px; /* Adjust button padding */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .containers {
+        padding: 15px; /* Reduce padding */
+    }
+
+    .left-side .details i {
+        font-size: 24px; /* Smaller icon size */
+    }
+
+    .left-side .details .topic {
+        font-size: 16px; /* Smaller font size */
+    }
+
+    .text-one, .text-two {
+        font-size: 12px; /* Smaller font size */
+    }
+
+    .right-side .topic-text {
+        font-size: 20px; /* Smaller font size */
+    }
+
+    .input-box input, .input-box textarea {
+        font-size: 14px; /* Smaller font size */
+        padding: 0 10px; /* Adjust padding */
+    }
+
+    .button input[type="button"] {
+        font-size: 14px; /* Smaller button font size */
+        padding: 4px 8px; /* Adjust button padding */
+    }
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Adjust width to fit within the screen on smaller devices */
+        margin: 10px 0;
+    }
+}
+
+@media(max-width:600px){
+.nav{
+    padding: 0 5vw;
+    height: 65px;
+}
+.nav h2{
+    font-size: 6vw;
+}
+.nav h4{
+    font-size: 4vw;
+    display: none;
+}
+.nav i{
+    display: block;
+    font-size: 6vw;
+}
+.content{
+    height: calc(100vh - 65px);
+    flex-direction: column;
+}
+.left{
+    width: 100%;
+    height: 60%;
+    padding: 4vw 6vw;
+    margin-bottom: 2vw;
+}
+.left h1{
+    font-size: 7vw;
+    line-height: 8vw;
+}
+.left p{
+    width: 80%;
+    font-size: 2.5vw;
+}
+button{
+    font-size: 2vw;
+    padding: 6px 7px;
+}
+.right{
+    width: 100%;
+    height: 40%;
+}
+.right img{
+    width: 90%;
+    height: 100%;
+}
+
+}
+.footer{
+    height: 200px;
+    width: 100%;
+    margin-top: 50px;
+}
+.footer-lists{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-lists h3{
+    margin-right: 2rem;
+    font-size: 24px;
+    cursor: pointer;
+}
+.footer-lists h3:hover{
+    color: grey;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-color: rgb(181, 181, 181);
+}
+.medias h2{
+font-size: 20px;
+text-align: center;
+margin-top: 20px;
+}
+.social{
+    margin-top: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social a{
+    margin-right: 2rem;
+text-decoration: none;
+}
+.social a i{
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+.social a i:hover{
+color: #d76f30;
+}
+.medias p {
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+/* Hide mobile menu and hamburger icon by default */
+.hamburger,
+.mobile-menu {
+    display: none;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .nav-items {
+        display: none;
+        /* Hide full menu on small screens */
+    }
+
+    .logo-content {
+        flex-shrink: 0;
+        /* Prevent logo from shrinking */
+    }
+
+    .logo-content h2 {
+        font-size: 18px;
+        /* Reduce font size on small screens */
+    }
+
+    .hamburger {
+        display: block;
+        /* Show hamburger icon */
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* Style for mobile menu */
+    .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    .mobile-menu.active {
+        display: block;
+        /* Show menu when active class is added */
+    }
+
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobile-menu ul li {
+        margin-bottom: 15px;
+    }
+
+    .mobile-menu ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .mobile-menu .start {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    /* Adjust home content for small screens */
+    .home-content h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .home-content p {
+        font-size: 16px;
+    }
+
+    .contact,
+    .locate {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
