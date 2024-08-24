@@ -2,9 +2,12 @@
     <div class="home">
         <nav>
             <div class="logo-content">
-                <img src="{{ asset('Assets/Images/logo.png') }}" alt="logo" class="logo">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('Assets/Images/logo.png') }}" alt="logo" class="logo">
+                </a>
                 <h2>DYMIC</h2>
             </div>
+
             <div class="nav-items">
                 <ul>
                     <li><a href="#about-us">About</a></li>

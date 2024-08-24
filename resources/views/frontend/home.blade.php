@@ -12,7 +12,7 @@
         <div class="card-content">
             <h1>{{ $service->service_title }}</h1>
             <p>{{ $service->description }}</p>
-            <a href="{{ $service->link ? route($service->link) : '#' }}" class="btn btn-primary">Learn More</a>
+            <a href="{{ $service->link ? url('/services/' . $service->link) : '#' }}" class="btn btn-primary">Learn More</a>
         </div>
     </div>
     @endforeach

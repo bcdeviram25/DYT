@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\Route;
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// routes/web.php
+Route::get('/services/{page}', function ($page) {
+    // Check if the view exists in the frontend folder
+    if (view()->exists('frontend.' . $page)) {
+        return view('frontend.' . $page);
+    } else {
+        abort(404); // If the view does not exist, show a 404 page
+    }
+})->name('service.page');
+
+
+
 // Dashboard route, protected by authentication
 Route::middleware([
     'auth:sanctum',

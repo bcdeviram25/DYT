@@ -21,6 +21,11 @@
             <label for="image">Image</label>
             <input type="file" class="form-control" id="image" name="image">
         </div>
+        <div class="form-group mb-3">
+            <label for="link">Link (Blade File Name)</label>
+            <input type="text" class="form-control" id="link" name="link" placeholder="Enter blade file name (without .blade.php)">
+        </div>
+
 
         <button type="submit" class="btn btn-success">Add Service</button>
     </form>
