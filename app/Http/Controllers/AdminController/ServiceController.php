@@ -27,6 +27,7 @@ class ServiceController extends Controller
             'service_title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'link' => 'nullable|string|max:255',
         ]);
 
         $imageName = null;
@@ -39,6 +40,7 @@ class ServiceController extends Controller
             'service_title' => $request->service_title,
             'description' => $request->description,
             'image' => $imageName,
+            'link' => $request->link,
         ]);
 
         return redirect()->route('services.index')
@@ -56,6 +58,7 @@ class ServiceController extends Controller
             'service_title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'link' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -68,11 +71,13 @@ class ServiceController extends Controller
             'service_title' => $request->service_title,
             'description' => $request->description,
             'image' => $service->image,
+            'link' => $request->link,
         ]);
 
         return redirect()->route('services.index')
             ->with('success', 'Service updated successfully.');
     }
+
 
     public function destroy(Service $service)
     {
