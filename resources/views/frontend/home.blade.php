@@ -11,8 +11,11 @@
         <img src="{{ asset('images/' . $service->image) }}" alt="{{ $service->service_title }}">
         <div class="card-content">
             <h1>{{ $service->service_title }}</h1>
-            <p>{{ $service->description }}</p>
-            <a href="{{ $service->link ? url('/services/' . $service->link) : '#' }}" class="btn btn-primary">Learn More</a>
+            <p>{{ $service->description }}</p> <br>
+            <a href="{{ $service->link ? url('/ourservices/' . $service->link) : '#' }}"
+                style="display: inline-block; padding: 10px 20px; background-color: #2E8B57; color: white; border-radius: 25px; text-align: center; text-decoration: none; font-weight: bold;">
+                Learn More
+            </a>
         </div>
     </div>
     @endforeach

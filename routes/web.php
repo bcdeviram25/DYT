@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // routes/web.php
-Route::get('/services/{page}', function ($page) {
+Route::get('/ourservices/{page}', function ($page) {
     // Check if the view exists in the frontend folder
     if (view()->exists('frontend.' . $page)) {
         return view('frontend.' . $page);
     } else {
         abort(404); // If the view does not exist, show a 404 page
     }
-})->name('service.page');
+})->name('ourservices.page');
 
 
 
@@ -32,7 +32,7 @@ Route::middleware([
 
 
     //Routes for services
-    Route::get('services', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('/services/index', [ServiceController::class, 'index'])->name('services.index');
     Route::get('services/create', [ServiceController::class, 'create'])->name('services.create');
     Route::post('services', [ServiceController::class, 'store'])->name('services.store');
     Route::get('services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
