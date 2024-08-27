@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Page;
 use App\Models\Service;
 use App\Models\WhyUs;
@@ -33,10 +34,12 @@ class HomeController extends Controller
 
         $testimonialdata = Testimonial::where('is_visible', 1)->get();
 
+        $contactus = Contact::where('status', 1)->get();
+
 
         $whyus = WhyUs::all();
         $services = Service::all();
-        return view('frontend.home', compact('services', 'whyus', 'mainPages', 'subPages', 'subSubPages', 'testimonialdata'));
+        return view('frontend.home', compact('services', 'whyus', 'mainPages', 'subPages', 'subSubPages', 'testimonialdata', 'contactus'));
     }
 
     public function show($id)
@@ -58,9 +61,12 @@ class HomeController extends Controller
             ->orderBy('order_number', 'asc')
             ->get();
 
-        // Check if the page style is content
+        $contactus = Contact::where('status', 1)->get();
+
+
+        // Check if the page style is content   
         if ($page->page_style == 'content') {
-            return view('frontend.show', compact('page', 'mainPages', 'subPages', 'subSubPages'));
+            return view('frontend.show', compact('page', 'mainPages', 'subPages', 'subSubPages', 'contactus'));
         }
 
         // If the page style is link, redirect to the link

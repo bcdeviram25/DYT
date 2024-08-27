@@ -5,16 +5,18 @@
             <span>DYMIC</span>
         </div>
         <div class="contact-details">
+            @foreach($contactus as $contact)
             <div class="address">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>BJ Bhawan, Kathmandu, Nepal</span>
+                <span>{{ $contact->address }}</span>
             </div>
             <div class="phone">
                 <i class="fas fa-phone-alt"></i>
-                <span>+9775354282</span>
+                <span>{{ $contact->phone_no }}</span>
             </div>
+            @endforeach
             <div class="events">
-                <a class="start" href="#">Register</a>
+                <a class="start" href="{{route('form')}}">Register</a>
             </div>
         </div>
     </div>
@@ -86,9 +88,9 @@
             @endforeach
 
             <!-- Static Pages -->
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
 
 

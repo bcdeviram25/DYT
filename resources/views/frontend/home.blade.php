@@ -116,7 +116,7 @@
 
 <div class="row">
     <!-- Contact Section: 6 columns -->
-    <div class="col-md-6 contact-section" id="contact-us">
+    <div class="col-md-6 contact-section" id="contact">
         <div class="contents">
             <div class="left-side">
                 <div class="address details">

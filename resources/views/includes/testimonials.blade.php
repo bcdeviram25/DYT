@@ -1,4 +1,4 @@
-  <div class="testimonials">
+  <div class="testimonials" id="testimonials">
       <h1>What Our Students Say</h1>
       <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
       <div class="swiper testimonial-slider">

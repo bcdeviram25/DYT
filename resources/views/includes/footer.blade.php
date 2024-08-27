@@ -5,7 +5,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><button class="start">Register<button>
+                <li><button class="start">Register</button> </li>
             </ul>
         </div>
         <div class="footer-logo">

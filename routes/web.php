@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminController\PageController;
 use App\Http\Controllers\AdminController\ServiceController;
 use App\Http\Controllers\AdminController\WhyUsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FormDataController;
 use Illuminate\Support\Facades\Route;
 
 // Home route
@@ -20,6 +21,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // routes/web.php
 Route::get('/pages/{id}', [HomeController::class, 'show'])->name('pages.show');
 
+//routes for form control
+Route::get('/form-data', [FormDataController::class, 'form'])->name('form');
+
+Route::post('/submit-form-data', [FormDataController::class, 'store'])->name('form_data.store');
 
 
 
