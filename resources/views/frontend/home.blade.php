@@ -36,6 +36,53 @@
     </div>
 </div>
 
+<div class="main-section">
+    <div class="work-section">
+        <h1>Specified Skilled Worker VISA (SSW) Japan</h1>
+        <div class="work-services">
+            <div class="service-card" data-title="Agriculture" data-description="The Agriculture sector offers opportunities to work in Japan's thriving agricultural industry, focusing on crop production, livestock farming, and innovative agricultural practices. Workers can gain hands-on experience with cutting-edge farming techniques and contribute to sustainable food production.">
+                <i class="fa-solid fa-tractor"></i>
+                <h2>Agriculture</h2>
+            </div>
+            <div class="service-card" data-title="Nursing" data-description="Nursing provides skilled workers the chance to work in Japan’s healthcare system, offering care to the elderly and those in need. With a focus on compassion and medical expertise, workers will help improve the quality of life for patients in hospitals, nursing homes, and care facilities.">
+                <i class="fa-solid fa-user-nurse"></i>
+                <h2>Nursing</h2>
+            </div>
+            <div class="service-card" data-title="Cleaning" data-description="The Cleaning industry in Japan emphasizes precision and attention to detail. Workers will be involved in maintaining cleanliness and hygiene in various settings, including hospitals, hotels, and public facilities, ensuring a safe and sanitary environment for all.">
+                <i class="fa-solid fa-broom"></i>
+                <h2>Cleaning</h2>
+            </div>
+            <div class="service-card" data-title="Construction" data-description="The Construction sector offers opportunities to contribute to Japan’s infrastructure projects, including building roads, bridges, and residential structures. Skilled workers will engage in hands-on construction work, ensuring the safety and durability of new developments.">
+                <i class="fa-solid fa-wrench"></i>
+                <h2>Construction</h2>
+            </div>
+            <div class="service-card" data-title="Hotels & Restaurants" data-description="In the Hotels & Restaurants sector, workers will provide high-quality hospitality services, including food preparation, customer service, and management. This sector is crucial in maintaining Japan’s reputation for excellent service in the tourism industry.">
+                <i class="fa-solid fa-utensils"></i>
+                <h2>Hotels</h2>
+            </div>
+            <div class="service-card" data-title="Packaging" data-description="The Packaging industry involves the careful packing and preparation of goods for shipment. Workers will ensure that products are securely packaged, labeled, and ready for transport, contributing to Japan’s global supply chain and export economy.">
+                <i class="fa-solid fa-box-open"></i>
+                <h2>Packaging</h2>
+            </div>
+            <div class="service-card" data-title="Food Services" data-description="Food Services in Japan focus on providing quality meals in a variety of settings, from restaurants to catering services. Workers will be involved in food preparation, cooking, and customer service, maintaining the high standards of Japan’s culinary culture.">
+                <i class="fa-solid fa-cookie-bite"></i>
+                <h2>Food</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="popup-title"></h2>
+            <p id="popup-content"></p>
+        </div>
+    </div>
+</div>
+
+
+
+
 @include('includes.testimonials')
 <!-- <div class="testomonials">
     <h1 class="why">Why Us?</h1>
@@ -51,6 +98,21 @@
         @endforeach
     </div>
 </div> -->
+
+<div class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="Assets/Images/background.jpg" alt="Gallery Image 1"></div>
+            <div class="swiper-slide"><img src="Assets/Images/background1.jpg" alt="Gallery Image 2"></div>
+            <div class="swiper-slide"><img src="Assets/Images/background2.jpg" alt="Gallery Image 3"></div>
+            <div class="swiper-slide"><img src="Assets/Images/background.jpg" alt="Gallery Image 4"></div>
+            <div class="swiper-slide"><img src="Assets/Images/background1.jpg" alt="Gallery Image 5"></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="gallery-pagination swiper-pagination"></div>
+    </div>
+</div>
 
 <div class="row">
     <!-- Contact Section: 6 columns -->

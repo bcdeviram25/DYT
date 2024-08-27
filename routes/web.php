@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController\AdminBannerController;
+use App\Http\Controllers\AdminController\AdminContactController;
+use App\Http\Controllers\AdminController\AdminGalleryController;
+use App\Http\Controllers\AdminController\AdminSSWController;
 use App\Http\Controllers\AdminController\AdminTeamMemberController;
 use App\Http\Controllers\AdminController\BannerController;
 use Illuminate\Support\Facades\Auth;
@@ -117,6 +120,35 @@ Route::middleware([
         // Delete route
         Route::delete('team_members/{team_member}', [AdminTeamMemberController::class, 'destroy'])->name('team_members.destroy');
     });
+
+
+    //routes for gallery
+    Route::get('/admin/gallery', [AdminGalleryController::class, 'index'])->name('admin.gallery.index');
+    Route::get('/admin/gallery/create', [AdminGalleryController::class, 'create'])->name('admin.gallery.create');
+    Route::post('/admin/gallery/store', [AdminGalleryController::class, 'store'])->name('admin.gallery.store');
+    Route::get('/admin/gallery/{id}/edit', [AdminGalleryController::class, 'edit'])->name('admin.gallery.edit');
+    Route::put('/admin/gallery/{id}', [AdminGalleryController::class, 'update'])->name('admin.gallery.update');
+    Route::delete('/admin/gallery/{id}', [AdminGalleryController::class, 'destroy'])->name('admin.gallery.destroy');
+    Route::patch('/admin/gallery/{id}/toggle-status', [AdminGalleryController::class, 'toggleStatus'])->name('admin.gallery.toggleStatus');
+
+
+    //routes for ssw
+    Route::get('/admin/ssw', [AdminSSWController::class, 'index'])->name('admin.ssw.index');
+    Route::get('/admin/ssw/create', [AdminSSWController::class, 'create'])->name('admin.ssw.create');
+    Route::post('/admin/ssw/store', [AdminSSWController::class, 'store'])->name('admin.ssw.store');
+    Route::get('/admin/ssw/{id}/edit', [AdminSSWController::class, 'edit'])->name('admin.ssw.edit');
+    Route::put('/admin/ssw/{id}', [AdminSSWController::class, 'update'])->name('admin.ssw.update');
+    Route::delete('/admin/ssw/{id}', [AdminSSWController::class, 'destroy'])->name('admin.ssw.destroy');
+    Route::patch('/admin/ssw/{id}/toggle-status', [AdminSSWController::class, 'toggleStatus'])->name('admin.ssw.toggleStatus');
+
+    //routes for contacts
+    Route::get('/admin/contacts', [AdminContactController::class, 'index'])->name('admin.contacts.index');
+    Route::get('/admin/contacts/create', [AdminContactController::class, 'create'])->name('admin.contacts.create');
+    Route::post('/admin/contacts/store', [AdminContactController::class, 'store'])->name('admin.contacts.store');
+    Route::get('/admin/contacts/{id}/edit', [AdminContactController::class, 'edit'])->name('admin.contacts.edit');
+    Route::put('/admin/contacts/{id}', [AdminContactController::class, 'update'])->name('admin.contacts.update');
+    Route::delete('/admin/contacts/{id}', [AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
+    Route::patch('/admin/contacts/{id}/toggle-status', [AdminContactController::class, 'toggleStatus'])->name('admin.contacts.toggleStatus');
 });
 
 // Override Jetstream's login route to ensure it redirects to the login page

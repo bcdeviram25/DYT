@@ -128,3 +128,59 @@ document.querySelectorAll('.dropdown-submenu').forEach(submenu => {
         }
     });
 });
+
+
+//for gallery images
+const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 3,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.gallery-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+
+//code for ssw
+const cards = document.querySelectorAll('.service-card');
+const popup = document.getElementById('popup');
+const popupTitle = document.getElementById('popup-title');
+const popupContent = document.getElementById('popup-content');
+const closeBtn = document.querySelector('.close-btn');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const content = card.getAttribute('data-description'); // Fetch description from HTML
+
+        popupTitle.textContent = title;
+        popupContent.textContent = content;
+        popup.style.display = 'flex';
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target == popup) {
+        popup.style.display = 'none';
+}
+});
