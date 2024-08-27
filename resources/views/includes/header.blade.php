@@ -1,36 +1,96 @@
-<header>
-    <div class="home">
-        <nav>
-            <div class="logo-content">
-                <a href="{{ route('home') }}">
-                    <img src="{{ asset('Assets/Images/logo.png') }}" alt="logo" class="logo">
-                </a>
-                <h2>DYMIC</h2>
+<header class="large-screen-header">
+    <div class="container header-container">
+        <div class="logo">
+            <img src="{{ asset('assets/Images/logo.png') }}" alt="DYMIC">
+            <span>DYMIC</span>
+        </div>
+        <div class="contact-details">
+            <div class="address">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>BJ Bhawan, Kathmandu, Nepal</span>
             </div>
-
-            <div class="nav-items">
-                <ul>
-                    <li><a href="#about-us">About</a></li>
-                    <li><a href="#our-services">Services</a></li>
-                    <li><a href="#contact-us">Contact</a></li>
-                    <li><button class="start">Start Now</button></li>
-                </ul>
+            <div class="phone">
+                <i class="fas fa-phone-alt"></i>
+                <span>+9775354282</span>
             </div>
-            <div class="hamburger">☰</div>
-            <div class="mobile-menu">
-                <ul>
-                    <li><a href="#about-us">About</a></li>
-                    <li><a href="#our-services">Services</a></li>
-                    <li><a href="#contact-us">Contact</a></li>
-                    <li><button class="start">Start Now</button></li>
-                </ul>
+            <div class="events">
+                <a class="start" href="#">Register</a>
             </div>
-        </nav>
-        <div class="home-content">
-            <h1>Destiny You Meet Immigration and Consultancy</h1>
-            <p>Study and Work Together</p>
-            <button class="contact">Contact Us</button>
-            <button class="locate">Locate Us</button>
         </div>
     </div>
 </header>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo small-screen-logo">
+            <img src="{{ asset('assets/Images/logo.png') }}" alt="Dolphin Logo">
+            <span>DYMIC</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="{{ route('home') }}">Home</a></li>
+
+            <!-- Main Pages -->
+            @foreach ($mainPages as $mainPage)
+            @if (!$mainPage->is_hidden)
+            <li class="dropdown">
+                @if ($mainPage->page_style == 'link')
+                <a href="{{ $mainPage->link }}" target="_blank">{{ $mainPage->page_name }}</a>
+                @else
+                <a href="{{ route('pages.show', $mainPage->id) }}">{{ $mainPage->page_name }}</a>
+                @endif
+
+                @php
+                $relatedSubPages = $subPages->filter(function($subPage) use ($mainPage) {
+                return $subPage->related_page == $mainPage->id && !$subPage->is_hidden;
+                });
+                @endphp
+
+                @if ($relatedSubPages->count() > 0)
+                <ul class="dropdown-menu">
+                    @foreach ($relatedSubPages as $subPage)
+                    <li class="dropdown-submenu">
+                        @if ($subPage->page_style == 'link')
+                        <a href="{{ $subPage->link }}" target="_blank">{{ $subPage->page_name }}</a>
+                        @else
+                        <a href="{{ route('pages.show', $subPage->id) }}">{{ $subPage->page_name }}</a>
+                        @endif
+
+                        @php
+                        $relatedSubSubPages = $subSubPages->filter(function($subSubPage) use ($subPage) {
+                        return $subSubPage->related_page == $subPage->id && !$subSubPage->is_hidden;
+                        });
+                        @endphp
+
+                        @if ($relatedSubSubPages->count() > 0)
+                        <ul class="dropdown-menu-right">
+                            @foreach ($relatedSubSubPages as $subSubPage)
+                            <li>
+                                @if ($subSubPage->page_style == 'link')
+                                <a href="{{ $subSubPage->link }}" target="_blank">{{ $subSubPage->page_name }}</a>
+                                @else
+                                <a href="{{ route('pages.show', $subSubPage->id) }}">{{ $subSubPage->page_name }}</a>
+                                @endif
+                            </li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    </li>
+                    @endforeach
+                </ul>
+                @endif
+            </li>
+            @endif
+            @endforeach
+
+            <!-- Static Pages -->
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+
+    </div>
+</nav>

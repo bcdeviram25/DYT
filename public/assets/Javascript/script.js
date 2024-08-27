@@ -1,44 +1,130 @@
-// JavaScript to handle menu toggle
-const menuIcon = document.getElementById('menu-icon');
-const closeIcon = document.getElementById('close-icon');
-const navItems = document.querySelector('.nav-items ul');
-
-// Show navigation menu when menu icon is clicked
-menuIcon.addEventListener('click', () => {
-    navItems.classList.add('active');
-    menuIcon.style.display = 'none'; // Hide the menu icon
-    closeIcon.style.display = 'block'; // Show the close icon
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('visible');
+}
+new Swiper('.testimonial-slider', {
+    loop: true,
+    spaceBetween: 30,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
+        },
+    },
 });
-
-// Hide navigation menu when close icon is clicked
-closeIcon.addEventListener('click', () => {
-    navItems.classList.remove('active');
-    menuIcon.style.display = 'block'; // Show the menu icon
-    closeIcon.style.display = 'none'; // Hide the close icon
-});
-
-//for scrolling of services cards
-$(document).ready(function(){
-    const slider = $('.slider-track');
-    const totalItems = $('.card').length;
-    const itemsToShow = 3;
-    const itemWidthPercentage = 100 / itemsToShow;
-    let currentIndex = 0;
-
-    function slideItems() {
-        currentIndex = (currentIndex + 1) % totalItems;
-        slider.css('transform', `translateX(-${currentIndex * itemWidthPercentage}%)`);
-    }
-
-    setInterval(slideItems, 3000); // Change slide every 3 seconds
-});
+// Responsive Navigation Menu Toggle
 
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuIcon = document.querySelector('.menu-icon i');
+    const navMenu = document.querySelector('.nav-menu');
+    const closeIcon = document.createElement('i');
 
-    hamburger.addEventListener('click', function() {
-        mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-        this.classList.toggle('active');
+    closeIcon.classList.add('fas', 'fa-times', 'close-icon');
+
+    menuIcon.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+
+        if (navMenu.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+            navMenu.prepend(closeIcon);
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+
+    closeIcon.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    });
+
+    // Close menu when clicking on any menu item
+    document.querySelectorAll('.nav-menu li a').forEach(item => {
+        item.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        });
+    });
+});
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        dots[i].classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+            dots[i].classList.add('active');
+        }
+    });
+    currentSlide = index;
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        showSlide(i);
+    });
+});
+
+setInterval(nextSlide, 5000);
+
+
+// Optional: If you want manual control, you can add event listeners for swipe or buttons.
+
+
+//for dropdown contents
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', () => {
+        const submenu = dropdown.querySelector('.dropdown-menu');
+        if (submenu) {
+            submenu.style.display = 'block';
+        }
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+        const submenu = dropdown.querySelector('.dropdown-menu');
+        if (submenu) {
+            submenu.style.display = 'none';
+        }
+    });
+});
+
+document.querySelectorAll('.dropdown-submenu').forEach(submenu => {
+    submenu.addEventListener('mouseenter', () => {
+        const submenuRight = submenu.querySelector('.dropdown-menu-right');
+        if (submenuRight) {
+            submenuRight.style.display = 'block';
+        }
+    });
+
+    submenu.addEventListener('mouseleave', () => {
+        const submenuRight = submenu.querySelector('.dropdown-menu-right');
+        if (submenuRight) {
+            submenuRight.style.display = 'none';
+        }
     });
 });

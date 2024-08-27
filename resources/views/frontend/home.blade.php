@@ -1,6 +1,10 @@
 @extends('layouts.auth')
 
 @section('content')
+
+@include('includes.banners')
+
+
 <div class="card-heading" id="our-services">
     <h2>OUR SERVICES</h2>
 </div>
@@ -21,23 +25,6 @@
     @endforeach
 </div>
 
-
-<div class="section">
-    <div class="head">
-        <h2>Specified Skilled Worker VISA (SSW) Japan</h2>
-    </div>
-    <div class="lists">
-        <h3>Agriculture</h3>
-        <h3>Nursing</h3>
-        <h3>Cleaning</h3>
-        <h3>Construction</h3>
-        <h3>Hotel and Restaurant</h3>
-        <h3>Packaging</h3>
-        <h3>Food Services</h3>
-    </div>
-    <button class="know">Know More</button>
-</div>
-
 <div class="about" id="about-us">
     <div class="left-section">
         <h1>About Us</h1>
@@ -49,7 +36,8 @@
     </div>
 </div>
 
-<div class="testomonials">
+@include('includes.testimonials')
+<!-- <div class="testomonials">
     <h1 class="why">Why Us?</h1>
     <div class="row">
         @foreach($whyus as $data)
@@ -62,7 +50,7 @@
         </div>
         @endforeach
     </div>
-</div>
+</div> -->
 
 <div class="row">
     <!-- Contact Section: 6 columns -->
@@ -108,10 +96,5 @@
         </div>
     </div>
 
-    <!-- Image Section: 6 columns -->
-    <div class="col-md-6">
-        <img src="{{ asset('assets/Images/contact-image.jpg') }}" class="img-fluid" alt="Contact Image">
-    </div>
-</div>
 
-@endsection
+    @endsection
