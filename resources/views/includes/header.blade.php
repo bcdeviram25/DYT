@@ -88,7 +88,7 @@
             @endforeach
 
             <!-- Static Pages -->
-            <li><a href="#about">About Us</a></li>
+            <li><a href="{{ route('about') }}">About Us</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>

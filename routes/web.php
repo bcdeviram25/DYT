@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminController\ServiceController;
 use App\Http\Controllers\AdminController\WhyUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FormDataController;
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 // Home route
@@ -20,6 +21,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // routes/web.php
 Route::get('/pages/{id}', [HomeController::class, 'show'])->name('pages.show');
+
+//routes for about
+Route::get('/about-us', [AboutController::class, 'about'])->name('about');
 
 //routes for form control
 Route::get('/form-data', [FormDataController::class, 'form'])->name('form');

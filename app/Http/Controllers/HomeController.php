@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Contact;
 use App\Models\Page;
 use App\Models\Service;
 use App\Models\WhyUs;
 use App\Models\Testimonial;
+use App\Models\GalleryImage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -36,10 +38,14 @@ class HomeController extends Controller
 
         $contactus = Contact::where('status', 1)->get();
 
+        $gallery = GalleryImage::where('status', 1)->get();
+
+        $bannerImage = Banner::where('is_visible', 1)->orderBy('id')->get();
+
 
         $whyus = WhyUs::all();
         $services = Service::all();
-        return view('frontend.home', compact('services', 'whyus', 'mainPages', 'subPages', 'subSubPages', 'testimonialdata', 'contactus'));
+        return view('frontend.home', compact('services', 'whyus', 'mainPages', 'subPages', 'subSubPages', 'testimonialdata', 'contactus', 'gallery', 'bannerImage'));
     }
 
     public function show($id)

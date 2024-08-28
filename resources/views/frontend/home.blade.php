@@ -3,9 +3,7 @@
 @section('content')
 
 @include('includes.banners')
-
-
-<div class="card-heading" id="our-services">
+<!-- <div class="card-heading" id="our-services">
     <h2>OUR SERVICES</h2>
 </div>
 
@@ -23,7 +21,7 @@
         </div>
     </div>
     @endforeach
-</div>
+</div> -->
 
 <div class="about" id="about-us">
     <div class="left-section">
@@ -35,6 +33,10 @@
         <img class="imgs" src="{{ asset('Assets/Images/img.jpg') }}" alt="About Us Image">
     </div>
 </div>
+
+
+@include('includes.teams')
+
 
 <div class="main-section">
     <div class="work-section">
@@ -103,60 +105,63 @@
     <h2>Gallery</h2>
     <div class="swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="Assets/Images/background.jpg" alt="Gallery Image 1"></div>
-            <div class="swiper-slide"><img src="Assets/Images/background1.jpg" alt="Gallery Image 2"></div>
-            <div class="swiper-slide"><img src="Assets/Images/background2.jpg" alt="Gallery Image 3"></div>
-            <div class="swiper-slide"><img src="Assets/Images/background.jpg" alt="Gallery Image 4"></div>
-            <div class="swiper-slide"><img src="Assets/Images/background1.jpg" alt="Gallery Image 5"></div>
+            @foreach($gallery as $data)
+            <div class="swiper-slide"><img src="{{ asset('storage/' . $data->image_path) }}" alt="Image hasn't been uploaded"></div>
+
+            @endforeach
         </div>
         <!-- Add Pagination -->
         <div class="gallery-pagination swiper-pagination"></div>
     </div>
 </div>
 
-<div class="row">
-    <!-- Contact Section: 6 columns -->
-    <div class="col-md-6 contact-section" id="contact">
-        <div class="contents">
-            <div class="left-side">
-                <div class="address details">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="topic">Address</div>
-                    <div class="text-one">Putali Sadak</div>
-                    <div class="text-two">Opposite Shankar Dev Campus</div>
-                </div>
-                <div class="phone details">
-                    <i class="fas fa-phone-alt"></i>
-                    <div class="topic">Phone</div>
-                    <div class="text-one">+9779841506563</div>
-                    <div class="text-two">+977014168265</div>
-                </div>
-                <div class="email details">
-                    <i class="fas fa-envelope"></i>
-                    <div class="topic">Email</div>
-                    <div class="text-one">destinyyoumeet@gmail.com</div>
-                </div>
-            </div>
-            <div class="right-side">
-                <div class="topic-text">Send us a message</div>
-                <p>If you have any queries or work that you need assistance with, feel free to contact us. It's our pleasure to help you.</p>
-                <form action="#">
-                    <div class="input-box">
-                        <input type="text" placeholder="Enter your name">
-                    </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Enter your Email">
-                    </div>
-                    <div class="input-box message-box">
-                        <textarea placeholder="Leave us a message"></textarea>
-                    </div>
-                    <div class="button">
-                        <input type="button" value="Send Now">
-                    </div>
-                </form>
-            </div>
+<div class="contact-row">
+    <!-- First row: Contact Information -->
+    <div class="contact-info">
+        <div class="details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Address</div>
+            <div class="text-one">Putali Sadak</div>
+            <div class="text-two">Opposite Shankar Dev Campus</div>
+        </div>
+        <div class="details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Phone</div>
+            <div class="text-one">+9779841506563</div>
+            <div class="text-two">+977014168265</div>
+        </div>
+        <div class="details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">destinyyoumeet@gmail.com</div>
         </div>
     </div>
 
+    <!-- Second row: Send Message Form and Image -->
+    <div class="contact-content">
+        <div class="left-column">
+            <div class="topic-text">Send us a message</div>
+            <p>If you have any queries or work that you need assistance with, feel free to contact us. It's our pleasure to help you.</p>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" placeholder="Enter your name">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Enter your Email">
+                </div>
+                <div class="input-box message-box">
+                    <textarea placeholder="Leave us a message"></textarea>
+                </div>
+                <div class="button">
+                    <input type="button" value="Send Now">
+                </div>
+            </form>
+        </div>
+        <div class="right-column contact-img">
+            <img src="{{ asset('assets/Images/contact-image.jpg')}}" alt="Contact Image">
+        </div>
+    </div>
+</div>
 
-    @endsection
+
+@endsection
